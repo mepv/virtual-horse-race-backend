@@ -55,6 +55,7 @@ public class HorseRaceService {
             LOGGER.info("Justificacion: El numero de caballos es mayor a 10, usamos virtual threads para mayor escalabilidad con muchos caballos.");
             executorService = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory());
         } else {
+            LOGGER.info("Justificacion: El numero de caballos es menor a 10, usamos threads tradicionales para menor overhead con pocos caballos.");
             executorService = Executors.newFixedThreadPool(numHorses);
         }
 
